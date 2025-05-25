@@ -2,20 +2,17 @@ package org.serratec.backend.exercicioPaginacaoDTO.domain;
 
 import java.time.LocalDate;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.PrePersist;
+import jakarta.persistence.*;
 
+@Entity
 public class Emprestimo {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
-	//fazer o relacionamento 
+
+    @OneToOne
+    @JoinColumn (name = "id_livro")
 	private Livro livro;
 	
 	@ManyToOne

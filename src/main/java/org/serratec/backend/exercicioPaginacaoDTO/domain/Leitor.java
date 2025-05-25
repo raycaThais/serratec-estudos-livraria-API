@@ -2,15 +2,13 @@ package org.serratec.backend.exercicioPaginacaoDTO.domain;
 
 import java.util.List;
 
+import jakarta.persistence.*;
 import org.hibernate.annotations.Where;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 
+@Entity
 public class Leitor {
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY)

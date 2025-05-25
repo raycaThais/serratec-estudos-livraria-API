@@ -6,7 +6,10 @@ import org.serratec.backend.exercicioPaginacaoDTO.exceptions.AutorException;
 import org.serratec.backend.exercicioPaginacaoDTO.repository.AutorRepository;
 import org.serratec.backend.exercicioPaginacaoDTO.repository.LivroRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+
 
 @Service
 public class LivroService {
@@ -29,4 +32,12 @@ public class LivroService {
 		autorRepository.findByNome(nomeAutor).getLivros().add(livro);
 		return livro;
 	}
+
+    public Page<Livro> buscarPagina(Pageable pageable) {
+        return livroRepository.findAll(pageable);
+    }
+
+    public Page<Livro> buscarNacionalidade(String nacionalidade, Pageable pageable) {
+        return livroRepository.findByAutorNacionalidade(nacionalidade, pageable);
+    }
 }
