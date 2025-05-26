@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/autores")
 public class AutorController {
@@ -39,7 +41,7 @@ public class AutorController {
 
 
 	@PostMapping
-	public ResponseEntity<AutorDTO> inserir(@RequestBody AutorInserirDTO autorIns){
+	public ResponseEntity<AutorDTO> inserir(@Valid @RequestBody AutorInserirDTO autorIns){
 		AutorDTO autorDto = new AutorDTO(autorService.inserirAutor(autorIns));
 
 		URI uri = ServletUriComponentsBuilder
