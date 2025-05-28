@@ -10,5 +10,7 @@ import org.springframework.stereotype.Repository;
 public interface LivroRepository extends JpaRepository<Livro, Long> {
 
     Page<Livro> findByAutorNacionalidade(String nacionalidade, Pageable pageable);
+    
+    Livro findByTituloIgnoreCase(String titulo);
 
 }

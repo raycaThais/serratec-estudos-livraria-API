@@ -2,7 +2,11 @@ package org.serratec.backend.exercicioPaginacaoDTO.domain;
 
 import java.util.List;
 
-import org.hibernate.annotations.Where;
+import org.serratec.backend.exercicioPaginacaoDTO.dto.LeitorInserirDTO;
+
+//import org.hibernate.annotations.Where;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -33,9 +37,18 @@ public class Leitor {
 	@Column(length=50)
 	private String senha;
 	
+	@JsonManagedReference
 	@OneToMany(mappedBy = "leitor")
-	@Where(clause = "data_devolucao IS NULL")
+//	@Where(clause = "data_devolucao IS NULL")
 	private List<Emprestimo> emprestimos;
+	
+	public Leitor() {}
+	
+	public Leitor(LeitorInserirDTO leitorIns) {
+		this.nome = leitorIns.getNome();
+		this.email = leitorIns.getEmail();
+		this.senha = leitorIns.getSenha();	
+	}
 
 	public Long getId() {
 		return id;

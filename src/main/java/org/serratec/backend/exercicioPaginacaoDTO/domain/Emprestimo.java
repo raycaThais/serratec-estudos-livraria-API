@@ -2,7 +2,16 @@ package org.serratec.backend.exercicioPaginacaoDTO.domain;
 
 import java.time.LocalDate;
 
-import jakarta.persistence.*;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.PrePersist;
 
 @Entity
 public class Emprestimo {
@@ -15,6 +24,7 @@ public class Emprestimo {
     @JoinColumn (name = "id_livro")
 	private Livro livro;
 	
+    @JsonBackReference
 	@ManyToOne
 	@JoinColumn (name = "id_leitor")
 	private Leitor leitor;
