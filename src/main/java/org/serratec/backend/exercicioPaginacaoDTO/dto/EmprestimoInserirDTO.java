@@ -2,16 +2,16 @@ package org.serratec.backend.exercicioPaginacaoDTO.dto;
 
 public class EmprestimoInserirDTO {
 
-	private String tituloLivro;
+	private Long idLivro;
 	
 	private String emailLeitor;
 
-	public String getTituloLivro() {
-		return tituloLivro;
+	public Long getIdLivro() {
+		return idLivro;
 	}
 
-	public void setTituloLivro(String tituloLivro) {
-		this.tituloLivro = tituloLivro;
+	public void setIdLivro(Long idLivro) {
+		this.idLivro = idLivro;
 	}
 
 	public String getEmailLeitor() {
@@ -21,6 +21,7 @@ public class EmprestimoInserirDTO {
 	public void setEmailLeitor(String emailLeitor) {
 		this.emailLeitor = emailLeitor;
 	}
+
 	
 	
 }

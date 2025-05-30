@@ -34,7 +34,7 @@ public class LivroService {
 		return livro;
 	}
 	
-	public Livro buscarPorTitulo(String titulo) { //usar no EmprestimoService
+	public Livro buscarPorTitulo(String titulo) { 
 		Livro livro = livroRepository.findByTituloIgnoreCase(titulo);
 		if (livro != null) {
 			return livro;

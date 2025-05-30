@@ -33,6 +33,13 @@ public class Emprestimo {
 	
 	private LocalDate dataDevolucao;
 	
+	public Emprestimo () {}
+	
+	public Emprestimo(Livro livro, Leitor leitor) {
+		this.livro = livro;
+		this.leitor = leitor;
+	}
+
 	@PrePersist
 	public void setarDataEmprestimo() {
 		this.dataEmprestimo = LocalDate.now();

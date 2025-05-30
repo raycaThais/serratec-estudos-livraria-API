@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -50,5 +51,11 @@ public class LivroController {
     public ResponseEntity<Page<Livro>> listarPorNacionalidade(String nacionalidade, Pageable pageable ) {
         Page<Livro> livros = livroService.buscarNacionalidade(nacionalidade, pageable);
         return ResponseEntity.ok(livros);
+    }
+    
+    @GetMapping("/porTitulo")
+    public ResponseEntity<Livro> buscarPorTitulo(@RequestParam String titulo){
+    	Livro livro = livroService.buscarPorTitulo(titulo);
+    	return ResponseEntity.ok(livro);
     }
 }
